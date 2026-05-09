@@ -124,7 +124,7 @@ a{
 a:hover{
     text-decoration: underline;
 }
-.icon{
+#eye{
     position: absolute;
     top:59%;
     left:88%;
@@ -132,7 +132,6 @@ a:hover{
 }
 </style>
 <body>
-    
     <div class="box">
         <form  method="POST">
             <input type="text" name="username" placeholder="Enter Username">
@@ -140,24 +139,19 @@ a:hover{
             <input type="email" name="email" placeholder="Enter Email">
             <span> <?php echo  $errors['email']??''; ?></span>
             <input type="password" name="password" id="pass" placeholder="Enter Password">
-            <div class="icon">
-                <span id="eye"><!-- Eye Open Icon -->
-<svg xmlns="http://www.w3.org/2000/svg" 
-     width="20" 
-     height="20" 
-     viewBox="0 0 24 24" 
-     fill="none" 
-     stroke="currentColor" 
-     color = "rgb(45,108,223)"
-     stroke-width="2" 
-     stroke-linecap="round" 
-     stroke-linejoin="round">
-
-    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
-    <circle cx="12" cy="12" r="3"/>
-
-</svg></span>
-            </div>
+            <span id="eye">
+                <svg id="eye-open" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                color = "rgb(45,108,223)"stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+                <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <svg id="eye-closed" style="display:none" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" viewBox="0 0 24 24" fill="none" 
+                stroke="currentColor" color = "rgb(45,108,223)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19C5 19 1 12 1 12a21.77 21.77 0 0 1 5.06-5.94"/>
+                <path d="M9.9 4.24A10.94 10.94 0 0 1 12 5c7 0 11 7 11 7a21.77 21.77 0 0 1-2.16 3.19"/>
+                <path d="M1 1l22 22"/>
+                </svg>
+            </span>
             <span> <?php echo  $errors['password']??''; ?></span>
         <input type="submit" name="register" value="Register">
     </form>
@@ -167,47 +161,20 @@ a:hover{
 <script>
     const eye = document.querySelector('#eye');
     const pass = document.querySelector('#pass');
+    const eye_open = document.querySelector('#eye-open');
+    const eye_closed = document.querySelector('#eye-closed');
+
 
          eye.addEventListener("click", ()=>{
 
             if(pass.type == 'password'){
              pass.type = 'text';
-             eye.innerHTML = `<!-- Eye Closed / Hide Password Icon -->
-<svg xmlns="http://www.w3.org/2000/svg" 
-     width="20" 
-     height="20" 
-     viewBox="0 0 24 24" 
-     fill="none" 
-     stroke="currentColor" 
-     color = "rgb(45,108,223)"
-     stroke-width="2" 
-     stroke-linecap="round" 
-     stroke-linejoin="round">
-
-    <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19C5 19 1 12 1 12a21.77 21.77 0 0 1 5.06-5.94"/>
-    
-    <path d="M9.9 4.24A10.94 10.94 0 0 1 12 5c7 0 11 7 11 7a21.77 21.77 0 0 1-2.16 3.19"/>
-    
-    <path d="M1 1l22 22"/>
-
-</svg>`
+             eye_open.style.display = "none";   
+             eye_closed.style.display = "block"
             } else{
                 pass.type = 'password';
-                eye.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" 
-     width="20" 
-     height="20" 
-     viewBox="0 0 24 24" 
-     fill="none" 
-     stroke="currentColor" 
-     color = "rgb(45,108,223)"
-     stroke-width="2" 
-     stroke-linecap="round" 
-     stroke-linejoin="round">
-
-    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
-    <circle cx="12" cy="12" r="3"/>
-
-</svg>`
+                eye_open.style.display = "block";    
+                eye_closed.style.display = "none"
             }
 
 })
