@@ -1,9 +1,5 @@
 <?php
-
 session_start();
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -11,98 +7,103 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome</title>
 </head>
- <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #5a3e2b, #8b5e3c);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        body {
-            height: 100vh;
-            display: flex;
-            flex-direction:column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, rgb(58, 123, 213), rgb(58, 213, 178));
-        }
+.box {
+    background: #f5eee6;
+    padding: 40px 30px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
 
-        .container {
-            background: white;
-            padding: 40px 60px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: fadeIn 0.8s ease-in-out;
-        }
+.user-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(to right, #6f4e37, #a47148);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
 
-        h1 {
-            font-size: 28px;
-            color: rgb(40, 40, 40);
-            margin-bottom: 10px;
-        }
+.user-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: #f5eee6;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
 
-        h1 span {
-            color: rgb(58, 123, 213);
-        }
+.box h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #4b2e2e;
+    margin: 0 0 8px;
+}
 
-        h3 {
-            font-weight: 400;
-          color: rgb(255, 200, 120);
-            margin-bottom: 25px;
-        }
+.box h3 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8b5e3c;
+    margin: 0 0 28px;
+}
 
-        a {
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            background: rgb(255, 80, 80);
-            color: white;
-            font-weight: 500;
-            transition: 0.3s ease;
-            display: inline-block;
-        }
+.divider {
+    border: none;
+    border-top: 1px solid #d2b48c;
+    margin: 0 0 24px;
+}
 
-        a:hover {
-            background: rgb(220, 50, 50);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+.box a {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #6f4e37, #a47148);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-        }
-        .box{
-        display: flex;
-        flex-direction:column;
-        justify-content: center;
-        align-items: center;
-        background: white;
-        background: #ffffff;
-        padding: 30px 25px;
-        width: 340px;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-    </style>
+.box a:hover {
+    background: linear-gradient(to right, #5a3e2b, #8b5e3c);
+}
+</style>
 <body>
     <div class="box">
-        <h1>Welcome <?php echo $_SESSION['username'] ?></h1>
-        <h3>You have successfully logged in</h3>
-        
-        <a href="login.php">Log Out </a>
-    </div>
-    
 
+        <div class="user-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+        </div>
+
+        <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
+        <h3>You have successfully logged in</h3>
+        <hr class="divider">
+        <a href="login.php">Log Out</a>
+
+    </div>
 </body>
 </html>
