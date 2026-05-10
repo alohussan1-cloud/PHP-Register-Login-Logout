@@ -29,132 +29,180 @@ if(isset($_POST['login'])){
     }     
  }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <style>
-    body {
+    * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
         font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(to right, #5a3e2b, #8b5e3c);
+        background: linear-gradient(135deg, #0f172a, #1e293b);
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    form {
-        background: #f5eee6;
-        padding: 30px 25px;
-        border-radius: 12px;
-        width: 320px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        position:relative;
-    }
-
-    form h6 {
-        font-size: 22px;
-        font-weight: 600;
+    .box {
+        background: #ffffff;
+        border-radius: 16px;
+        width: 340px;
+        padding: 40px 30px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         text-align: center;
-        color: #4b2e2e;
-        margin-bottom: 20px;
     }
 
-    form input {
-        width: 90%;
-        padding: 12px;
-        margin-bottom: 10px;
-        border: 1px solid #d2b48c;
+    .box-header {
+        margin-bottom: 24px;
+    }
+
+    .box-header h2 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #0f172a;
+        margin: 0 0 6px;
+    }
+
+    .box-header p {
+        font-size: 13px;
+        color: #64748b;
+        margin: 0;
+    }
+
+    form {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 14px;
+        margin-bottom: 4px;
         border-radius: 8px;
+        border: 1px solid #e2e8f0;
         outline: none;
         font-size: 14px;
-        background: #fffaf5;
+        color: #0f172a;
+        background: #f8fafc;
+        transition: 0.2s;
+        box-sizing: border-box;
     }
 
-    form input:focus {
-        border-color: #8b5e3c;
-        box-shadow: 0 0 5px rgba(139,94,60,0.5);
+    input::placeholder {
+        color: #94a3b8;
     }
 
-    form span {
+    input:focus {
+        border-color: #334155;
+        background: #ffffff;
+        box-shadow: 0 0 0 3px rgba(15,23,42,0.08);
+    }
+
+    form span.error {
         font-size: 12px;
-        color: #b00020;
+        color: #dc2626;
+        text-align: left;
+        margin-bottom: 8px;
+        min-height: 16px;
         display: block;
-        margin-bottom: 10px;
+        padding-left: 2px;
     }
 
-    form input[type="submit"] {
-        background: linear-gradient(to right, #6f4e37, #a47148);
+    input[type="submit"] {
+        background: #0f172a;
         color: white;
-        font-weight: 600;
         border: none;
         cursor: pointer;
-        transition: 0.3s ease;
-        width: 98%;
-    }
-
-    form input[type="submit"]:hover {
-        background: linear-gradient(to right, #5a3e2b, #8b5e3c);
-    }
-
-    form p {
-        text-align: center;
-        font-size: 13px;
-        margin-top: 10px;
-        color: #5a3e2b;
-    }
-
-    form a {
-        color: #8b5e3c;
-        text-decoration: none;
         font-weight: 600;
+        font-size: 14px;
+        padding: 13px;
+        margin-top: 8px;
+        transition: 0.2s ease;
+        width: 100%;
+        border-radius: 8px;
     }
 
-    form a:hover {
+    input[type="submit"]:hover {
+        background: #1e293b;
+    }
+
+    .box > p {
+        margin-top: 20px;
+        font-size: 13px;
+        color: #64748b;
+        text-align: center;
+    }
+
+    .box > p a {
+        color: #0f172a;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .box > p a:hover {
         text-decoration: underline;
     }
-    #eye{
+
+    #eye {
         position: absolute;
-        top:54%;
-        left:80%;
+        top: 54%;
+        left: 88%;
         cursor: pointer;
     }
 </style>
 <body>
-    <form  Method="POST">
-        <h6>Log In to Continue</h6>
-        <input type="email" name="email" placeholder="Enter Email">
-        <span> <?php echo $error['wEmail']??'';?> </span>
-        <input type="password" name="password" id="pass" placeholder="Enter Password"> 
-       <span id="eye">
-            <svg id="eye-open" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-            color = "#5a3e2b"stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
-            <circle cx="12" cy="12" r="3"/>
-            </svg>
-            <svg id="eye-closed" style="display:none" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" viewBox="0 0 24 24" fill="none" 
-            stroke="currentColor" color = "#5a3e2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19C5 19 1 12 1 12a21.77 21.77 0 0 1 5.06-5.94"/>
-            <path d="M9.9 4.24A10.94 10.94 0 0 1 12 5c7 0 11 7 11 7a21.77 21.77 0 0 1-2.16 3.19"/>
-            <path d="M1 1l22 22"/>
-            </svg>
+
+    <div class="box">
+
+        <div class="box-header">
+            <h2>Welcome back</h2>
+            <p>Log in to continue to your account</p>
+        </div>
+
+        <form method="POST">
+            <input type="email" name="email" placeholder="Enter Email">
+            <span class="error"><?php echo $error['wEmail']??''; ?></span>
+
+            <input type="password" name="password" id="pass" placeholder="Enter Password">
+            <span id="eye">
+                <svg id="eye-open" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                color="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+                <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <svg id="eye-closed" style="display:none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" color="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19C5 19 1 12 1 12a21.77 21.77 0 0 1 5.06-5.94"/>
+                <path d="M9.9 4.24A10.94 10.94 0 0 1 12 5c7 0 11 7 11 7a21.77 21.77 0 0 1-2.16 3.19"/>
+                <path d="M1 1l22 22"/>
+                </svg>
             </span>
-        <span> <?php echo $error['wPass']??'';?> </span>
-        <input type="submit" name="login" value="Log In">
-        <p>Don't have an account yet? <a href="register.php">Sign in</a> </p>
-    </form>
+            <span class="error"><?php echo $error['wPass']??''; ?></span>
+
+            <input type="submit" name="login" value="Log In">
+        </form>
+
+        <p>Don't have an account yet? <a href="register.php">Sign up</a></p>
+
+    </div>
 
 <script>
     const eye = document.querySelector('#eye');
     const pass = document.querySelector('#pass');
     const eye_open = document.querySelector('#eye-open');
     const eye_closed = document.querySelector('#eye-closed');
-
 
     eye.addEventListener("click", ()=>{
         if(pass.type == 'password'){
@@ -166,9 +214,7 @@ if(isset($_POST['login'])){
             eye_open.style.display = "block";    
             eye_closed.style.display = "none"
         }
-
     })
 </script>
 </body>
 </html>
-
