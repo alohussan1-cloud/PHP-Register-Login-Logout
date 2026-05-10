@@ -4,8 +4,8 @@ session_start();
 
 require_once "./conn.php";
 
-$Email = $_POST['email']??'';
-$Password = $_POST['password']??'';
+$Email = trim($_POST['email']??'');
+$Password = trim($_POST['password']??'');
 
 $error = []??'';
 

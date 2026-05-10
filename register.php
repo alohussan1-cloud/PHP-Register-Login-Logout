@@ -6,14 +6,14 @@ $errors =[]??'';
 
 if(isset($_POST['register'])){
 
-$username = $_POST['username']??'';
-$email = $_POST['email']??'';
-$password = $_POST['password']??'';
+$username = trim($_POST['username']??'');
+$email = trim($_POST['email']??'');
+$password = trim($_POST['password']??'');
 
 
 
 if(empty($username)){
-    $errors['username'] = "Username is required";
+    $errors['username'] = "username is required";
     }
     if(empty($email)){
         $errors['email'] = "email is required";
@@ -31,6 +31,7 @@ if(empty($username)){
         $run = $conn->query($sql);
         
         header("location: ./success.php"); 
+        exit();
         }
         }
         
@@ -58,7 +59,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, rgb(45, 108, 223), rgb(102, 51, 153));
+    background: linear-gradient(to right, #5a3e2b, #8b5e3c);
 }
 
 .box{
@@ -97,7 +98,7 @@ input:focus{
 }
 
 input[type="submit"]{
-    background: rgb(45,108,223);
+    background:linear-gradient(to right, #6f4e37, #a47148);
     color: white;
     border: none;
     cursor: pointer;
@@ -106,18 +107,18 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-    background: rgb(30, 85, 190);
+    background: linear-gradient(to right, #6f4e37, #a47148);
 }
 
 p{
     margin-top: 15px;
     font-size: 14px;
-    color: #555;
+    color: #5a3e2b;;
 }
 
 a{
     text-decoration: none;
-    color: rgb(45,108,223);
+    color:  #8b5e3c;
     font-weight: bold;
 }
 
@@ -130,29 +131,36 @@ a:hover{
     left:88%;
     cursor: pointer;
 }
+form span {
+    font-size: 12px;
+    color: #b00020;
+    text-align :left;
+    margin-left:5px;
+}
+
 </style>
 <body>
     <div class="box">
         <form  method="POST">
             <input type="text" name="username" placeholder="Enter Username">
-            <span> <?php echo  $errors['username']??''; ?></span>
+            <span class="error"><?php echo  $errors['username']??''; ?></span>
             <input type="email" name="email" placeholder="Enter Email">
-            <span> <?php echo  $errors['email']??''; ?></span>
+            <span class="error"> <?php echo  $errors['email']??''; ?></span>
             <input type="password" name="password" id="pass" placeholder="Enter Password">
             <span id="eye">
                 <svg id="eye-open" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-                color = "rgb(45,108,223)"stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                color = "#5a3e2b"stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
                 <circle cx="12" cy="12" r="3"/>
                 </svg>
                 <svg id="eye-closed" style="display:none" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" viewBox="0 0 24 24" fill="none" 
-                stroke="currentColor" color = "rgb(45,108,223)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                stroke="currentColor" color = "#5a3e2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19C5 19 1 12 1 12a21.77 21.77 0 0 1 5.06-5.94"/>
                 <path d="M9.9 4.24A10.94 10.94 0 0 1 12 5c7 0 11 7 11 7a21.77 21.77 0 0 1-2.16 3.19"/>
                 <path d="M1 1l22 22"/>
                 </svg>
             </span>
-            <span> <?php echo  $errors['password']??''; ?></span>
+            <span class = "error"> <?php echo  $errors['password']??''; ?></span>
         <input type="submit" name="register" value="Register">
     </form>
     <p>Already have an account? <a href="login.php">Log In</a> </p>
