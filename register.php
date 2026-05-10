@@ -9,32 +9,27 @@ if(isset($_POST['register'])){
 $username = trim($_POST['username']??'');
 $email = trim($_POST['email']??'');
 $password = trim($_POST['password']??'');
-
-
-
-if(empty($username)){
-    $errors['username'] = "username is required";
+    if(empty($username)){
+        $errors['username'] = "username is required";
     }
     if(empty($email)){
         $errors['email'] = "email is required";
-        }
-        if(empty($password)){
-            $errors['password'] = "password is required";
-            }
-            
-            
-            if(empty($errors)){
+    }
+    if(empty($password)){
+        $errors['password'] = "password is required";
+    }
+                     
+    if(empty($errors)){
                 
-                $hashpass = password_hash($password, PASSWORD_DEFAULT)??'';  
+        $hashpass = password_hash($password, PASSWORD_DEFAULT)??'';  
                 
         $sql = "INSERT INTO data(Name, Email, Password) values('$username', '$email', '$hashpass')";
         $run = $conn->query($sql);
         
         header("location: ./success.php"); 
         exit();
-        }
-        }
-        
+    }
+}
 
 ?>
 
@@ -46,98 +41,97 @@ if(empty($username)){
     <title>Document</title>
 </head>
 <style>
- *{
-    
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+    *{
+        
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-body{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #5a3e2b, #8b5e3c);
-}
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #5a3e2b, #8b5e3c);
+    }
 
-.box{
-    background: #fff;
-    padding: 30px;
-    width: 350px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    text-align: center;
-}
+    .box{
+        background: #fff;
+        padding: 30px;
+        width: 350px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        text-align: center;
+    }
 
-.box h2{
-    margin-bottom: 20px;
-    color: #333;
-}
+    .box h2{
+        margin-bottom: 20px;
+        color: #333;
+    }
 
-form{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
+    form{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
 
-input{
-    margin: 10px 0;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid rgb(200,200,200);
-    outline: none;
-    font-size: 14px;
-    transition: 0.3s;
-}
+    input{
+        margin: 10px 0;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid rgb(200,200,200);
+        outline: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
 
-input:focus{
-    border-color: rgb(45,108,223);
-    box-shadow: 0 0 5px rgba(45,108,223,0.3);
-}
+    input:focus{
+        border-color: rgb(45,108,223);
+        box-shadow: 0 0 5px rgba(45,108,223,0.3);
+    }
 
-input[type="submit"]{
-    background:linear-gradient(to right, #6f4e37, #a47148);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
+    input[type="submit"]{
+        background:linear-gradient(to right, #6f4e37, #a47148);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
 
-input[type="submit"]:hover{
-    background: linear-gradient(to right, #6f4e37, #a47148);
-}
+    input[type="submit"]:hover{
+        background: linear-gradient(to right, #6f4e37, #a47148);
+    }
 
-p{
-    margin-top: 15px;
-    font-size: 14px;
-    color: #5a3e2b;;
-}
+    p{
+        margin-top: 15px;
+        font-size: 14px;
+        color: #5a3e2b;;
+    }
 
-a{
-    text-decoration: none;
-    color:  #8b5e3c;
-    font-weight: bold;
-}
+    a{
+        text-decoration: none;
+        color:  #8b5e3c;
+        font-weight: bold;
+    }
 
-a:hover{
-    text-decoration: underline;
-}
-#eye{
-    position: absolute;
-    top:59%;
-    left:88%;
-    cursor: pointer;
-}
-form span {
-    font-size: 12px;
-    color: #b00020;
-    text-align :left;
-    margin-left:5px;
-}
-
+    a:hover{
+        text-decoration: underline;
+    }
+    #eye{
+        position: absolute;
+        top:59%;
+        left:88%;
+        cursor: pointer;
+    }
+    form span {
+        font-size: 12px;
+        color: #b00020;
+        text-align :left;
+        margin-left:5px;
+    }
 </style>
 <body>
     <div class="box">
@@ -186,6 +180,6 @@ form span {
             }
 
 })
-            </script>
+</script>
 </body>
 </html>

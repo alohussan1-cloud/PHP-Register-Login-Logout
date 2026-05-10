@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
- <style>
+<style>
  body{
     margin:0;
     font-family: Arial, sans-serif;
 }
-
-/* center everything */
 .container{
     height:100vh;
     display:flex;
@@ -19,8 +17,6 @@
     align-items:center;
     background: linear-gradient(135deg, rgb(0,123,255), rgb(111,66,193));
 }
-
-/* card */
 .box{
     text-align:center;
     padding:40px;
@@ -29,8 +25,6 @@
     backdrop-filter: blur(10px);
     color:white;
 }
-
-/* button */
 .btn{
     display:inline-block;
     margin-top:20px;
@@ -41,14 +35,12 @@
     text-decoration:none;
     font-weight:600;
 }
-
-/* text under button */
 .subtext{
     margin-top:10px;
     font-size:0.9rem;
     opacity:0.8;
 }
-    </style>
+</style>
 <body>
     
 <body>
