@@ -157,7 +157,7 @@ if(isset($_POST['login'])){
 
     #eye {
         position: absolute;
-        top: 54%;
+        top: 42%;
         left: 88%;
         cursor: pointer;
     }

@@ -6,7 +6,8 @@ $errors =[]??'';
 if(isset($_POST['register'])){
 
 $username = trim($_POST['username']??'');
-$email = trim($_POST['email']??'');
+$username = ucwords(strtolower($username))??'';
+$email = strtolower( trim($_POST['email']??''));
 $password = trim($_POST['password']??'');
     if(empty($username)){
         $errors['username'] = "username is required";
