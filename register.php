@@ -58,7 +58,7 @@ $password = trim($_POST['password']??'');
     .box {
         background: #ffffff;
         border-radius: 16px;
-        width: 340px;
+        width: 400px;
         padding: 40px 30px;
         box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         text-align: center;
@@ -69,14 +69,14 @@ $password = trim($_POST['password']??'');
     }
 
     .box-header h2 {
-        font-size: 22px;
+        font-size: 28px;
         font-weight: 700;
         color: #0f172a;
         margin: 0 0 6px;
     }
 
     .box-header p {
-        font-size: 13px;
+        font-size: 15px;
         color: #64748b;
         margin: 0;
     }
@@ -94,7 +94,7 @@ $password = trim($_POST['password']??'');
         border-radius: 8px;
         border: 1px solid #e2e8f0;
         outline: none;
-        font-size: 14px;
+        font-size: 18px;
         color: #0f172a;
         background: #f8fafc;
         transition: 0.2s;
@@ -116,7 +116,7 @@ $password = trim($_POST['password']??'');
         border: none;
         cursor: pointer;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 18px;
         padding: 13px;
         margin-top: 8px;
         transition: 0.2s ease;
@@ -128,7 +128,7 @@ $password = trim($_POST['password']??'');
     }
 
     form span.error {
-        font-size: 12px;
+        font-size: 15px;
         color: #dc2626;
         text-align: left;
         margin-bottom: 8px;
@@ -139,7 +139,7 @@ $password = trim($_POST['password']??'');
 
     .box > p {
         margin-top: 20px;
-        font-size: 13px;
+        font-size: 16px;
         color: #64748b;
     }
 
@@ -161,14 +161,13 @@ $password = trim($_POST['password']??'');
     }
 </style>
 <body>
-
+    <!-- Heading -->
     <div class="box">
-
         <div class="box-header">
             <h2>Create an account</h2>
             <p>Fill in your details to get started</p>
         </div>
-
+        <!-- Form -->
         <form method="POST">
             <input type="text" name="username" placeholder="Enter Username">
             <span class="error"><?php echo $errors['username']??''; ?></span>
@@ -194,11 +193,8 @@ $password = trim($_POST['password']??'');
 
             <input type="submit" name="register" value="Register">
         </form>
-
         <p>Already have an account? <a href="login.php">Log In</a></p>
-
     </div>
-
 <script>
 const eye = document.querySelector('#eye');
 const pass = document.querySelector('#pass');

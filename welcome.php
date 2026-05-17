@@ -78,9 +78,9 @@ session_start();
     }
 
     .box h3 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 400;
-        color: #64748b;
+        color: #7d8590;
         margin: 0 0 28px;
         line-height: 1.6;
     }
@@ -98,7 +98,7 @@ session_start();
         background: #0f172a;
         color: #ffffff;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 18px;
         border-radius: 8px;
         text-decoration: none;
         box-sizing: border-box;
@@ -121,7 +121,7 @@ session_start();
             </svg>
         </div>
 
-        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+        <h1>Welcome, <?php echo ($_SESSION['username']); ?>!</h1>
         <h3>You have successfully logged in</h3>
         <hr class="divider">
         <a href="logout.php">Log Out</a>

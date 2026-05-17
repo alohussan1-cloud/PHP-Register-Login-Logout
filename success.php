@@ -24,7 +24,7 @@
     .card {
         background: #ffffff;
         border-radius: 16px;
-        width: 340px;
+        width: 400px;
         padding: 40px 30px;
         box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         text-align: center;
@@ -93,7 +93,7 @@
         background: #0f172a;
         color: #ffffff;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 19px;
         border-radius: 8px;
         text-decoration: none;
         box-sizing: border-box;

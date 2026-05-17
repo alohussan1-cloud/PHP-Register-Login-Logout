@@ -56,7 +56,7 @@ if(isset($_POST['login'])){
     .box {
         background: #ffffff;
         border-radius: 16px;
-        width: 340px;
+        width: 400px;
         padding: 40px 30px;
         box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         text-align: center;
@@ -67,14 +67,14 @@ if(isset($_POST['login'])){
     }
 
     .box-header h2 {
-        font-size: 22px;
+        font-size: 25px;
         font-weight: 700;
         color: #0f172a;
         margin: 0 0 6px;
     }
 
     .box-header p {
-        font-size: 13px;
+        font-size: 16px;
         color: #64748b;
         margin: 0;
     }
@@ -93,7 +93,7 @@ if(isset($_POST['login'])){
         border-radius: 8px;
         border: 1px solid #e2e8f0;
         outline: none;
-        font-size: 14px;
+        font-size: 18px;
         color: #0f172a;
         background: #f8fafc;
         transition: 0.2s;
@@ -111,7 +111,7 @@ if(isset($_POST['login'])){
     }
 
     form span.error {
-        font-size: 12px;
+        font-size: 15px;
         color: #dc2626;
         text-align: left;
         margin-bottom: 8px;
@@ -126,7 +126,7 @@ if(isset($_POST['login'])){
         border: none;
         cursor: pointer;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 18px;
         padding: 13px;
         margin-top: 8px;
         transition: 0.2s ease;
@@ -140,7 +140,7 @@ if(isset($_POST['login'])){
 
     .box > p {
         margin-top: 20px;
-        font-size: 13px;
+        font-size: 16px;
         color: #64748b;
         text-align: center;
     }
@@ -172,7 +172,7 @@ if(isset($_POST['login'])){
         </div>
 
         <form method="POST">
-            <input type="email" name="email" placeholder="Enter Email">
+            <input type="email" name="email" value="<?php echo $Email ?>" placeholder="Enter Email">
             <span class="error"><?php echo $error['wEmail']??''; ?></span>
 
             <input type="password" name="password" id="pass" placeholder="Enter Password">
